@@ -9,7 +9,7 @@ const Testimonials = () => {
 
   const testimonials = [
     {
-      message: "Ashok Reddy Cheluri has been more than just a friend—he’s someone who always carried this calm, cheerful vibe...",
+      message: "Ashok Reddy Cheluri has been more than just a friend—he’s someone who always carried this calm, cheerful vibe that made things feel lighter, no matter how big the task was. He’s usually in his own space, but when something needs to be done, he shows up like magic—solves the problem, gives us his support, and quietly slips away, leaving us smiling. One memory that really sticks with me is when most of us went home for the holidays, but Ashok chose to stay back at college just to make sure everything was perfect for our event. On top of all that, his 500-day coding streak on GeeksforGeeks is honestly incredible. It shows how quietly consistent and passionate he is about what he loves.",
       name: "Navuluri Balaji",
       role: "Associate Software Developer, AVK Tech",
       avatar: "/assets/balaji.jpg",
