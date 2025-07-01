@@ -1,44 +1,49 @@
-
-import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, Github } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Github } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Testimonials = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
-  
+  const [isHovered, setIsHovered] = useState(false);
+  const intervalRef = useRef(null);
+
   const testimonials = [
     {
-      message: "Ashok is an exceptional Java developer with deep understanding of Spring Boot and microservices. His problem-solving skills and attention to detail make him a valuable team member.",
-      name: "Sarah Johnson",
-      role: "Senior Software Engineer",
-      avatar: "SJ",
-      github: "#",
-      linkedin: "#"
+      message: "Ashok Reddy Cheluri has been more than just a friend—he’s someone who always carried this calm, cheerful vibe...",
+      name: "Navuluri Balaji",
+      role: "Associate Software Developer, AVK Tech",
+      avatar: "/assets/balaji.jpg",
+      github: "https://github.com/NavuluriBalaji",
+      linkedin: "http://www.linkedin.com/in/navuluri-balaji"
     },
     {
-      message: "Working with Ashok on backend projects has been fantastic. His expertise in Spring Security and REST APIs helped us build robust and scalable solutions.",
+      message: "Working with Ashok on backend projects has been fantastic...",
       name: "Michael Chen",
       role: "Tech Lead",
-      avatar: "MC",
+      avatar: "/assets/testimonials/michael.jpg",
       github: "#",
       linkedin: "#"
     },
     {
-      message: "Ashok's dedication to coding excellence and continuous learning is impressive. He consistently delivers high-quality solutions and mentors junior developers effectively.",
+      message: "Ashok's dedication to coding excellence and continuous learning is impressive...",
       name: "Priya Sharma",
       role: "Engineering Manager",
-      avatar: "PS",
+      avatar: "/assets/testimonials/priya.jpg",
       github: "#",
       linkedin: "#"
     }
   ];
 
-  const nextTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-  };
+  // Auto-scroll logic
+  useEffect(() => {
+    if (!isHovered) {
+      intervalRef.current = setInterval(() => {
+        setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+      }, 5000);
+    }
 
-  const prevTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
+    return () => clearInterval(intervalRef.current);
+  }, [isHovered, testimonials.length]);
 
   return (
     <section id="testimonials" className="py-20 bg-gray-800/50">
@@ -47,63 +52,72 @@ const Testimonials = () => {
           <h2 className="text-4xl font-bold mb-4">What People Say</h2>
           <div className="w-20 h-1 bg-gradient-to-r from-purple-400 to-blue-500 mx-auto"></div>
         </div>
-        
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-gray-900/50 rounded-lg p-8 border border-gray-700 relative">
-            <div className="text-center">
-              <div className="mb-6">
-                <div className="w-20 h-20 rounded-full bg-gradient-to-r from-purple-400 to-blue-500 flex items-center justify-center text-xl font-bold text-white mx-auto mb-4">
-                  {testimonials[currentTestimonial].avatar}
+
+        <div
+          className="max-w-4xl mx-auto relative h-[480px] overflow-hidden"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentTestimonial}
+              initial={{ x: 300, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: -300, opacity: 0 }}
+              transition={{ duration: 0.8 }}
+              className="absolute w-full h-full"
+            >
+              <motion.div
+                className="bg-gray-900/50 p-8 border border-gray-700 rounded-lg text-center cursor-pointer"
+                whileHover={{ scale: 1.05 }}
+              >
+                <div className="mb-6">
+                  <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-4 border-2 border-purple-500">
+                    <img
+                      src={testimonials[currentTestimonial].avatar}
+                      alt={testimonials[currentTestimonial].name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                 </div>
-              </div>
-              
-              <blockquote className="text-lg text-gray-300 mb-6 italic leading-relaxed">
-                "{testimonials[currentTestimonial].message}"
-              </blockquote>
-              
-              <div className="mb-4">
-                <h4 className="text-xl font-semibold text-white">
-                  {testimonials[currentTestimonial].name}
-                </h4>
-                <p className="text-purple-400">
-                  {testimonials[currentTestimonial].role}
-                </p>
-              </div>
-              
-              <div className="flex justify-center gap-4">
-                <a
-                  href={testimonials[currentTestimonial].github}
-                  className="p-2 bg-gray-800 rounded-full border border-gray-600 hover:border-purple-500 transition-colors duration-200"
-                >
-                  <Github className="w-4 h-4" />
-                </a>
-                <a
-                  href={testimonials[currentTestimonial].linkedin}
-                  className="p-2 bg-gray-800 rounded-full border border-gray-600 hover:border-purple-500 transition-colors duration-200"
-                >
-                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                  </svg>
-                </a>
-              </div>
-            </div>
-            
-            <button
-              onClick={prevTestimonial}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 p-2 bg-gray-800 rounded-full border border-gray-600 hover:border-purple-500 transition-colors duration-200"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            
-            <button
-              onClick={nextTestimonial}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 p-2 bg-gray-800 rounded-full border border-gray-600 hover:border-purple-500 transition-colors duration-200"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
-          
-          <div className="flex justify-center mt-6 gap-2">
+
+                <blockquote className="text-lg text-gray-300 mb-6 italic leading-relaxed">
+                  "{testimonials[currentTestimonial].message}"
+                </blockquote>
+
+                <div className="mb-4">
+                  <h4 className="text-xl font-semibold text-white">
+                    {testimonials[currentTestimonial].name}
+                  </h4>
+                  <p className="text-purple-400">{testimonials[currentTestimonial].role}</p>
+                </div>
+
+                <div className="flex justify-center gap-4">
+                  <a
+                    href={testimonials[currentTestimonial].github}
+                    className="p-2 bg-gray-800 rounded-full border border-gray-600 hover:border-purple-500"
+                  >
+                    <Github className="w-4 h-4" />
+                  </a>
+                  <a
+                    href={testimonials[currentTestimonial].linkedin}
+                    className="p-2 bg-gray-800 rounded-full border border-gray-600 hover:border-purple-500"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                      className="w-4 h-4"
+                    >
+                      <path d="M4.983 3.5C4.983 5 3.89 6 2.497 6 1.105 6 0 5 0 3.5 0 2 1.095 1 2.497 1c1.403 0 2.486 1 2.486 2.5zM0 24h5V7H0v17zm7.5 0h5v-8.5c0-2.5 3-2.7 3 0V24h5V14.3c0-6.2-7-6-8.5-2.9V7h-5v17z" />
+                    </svg>
+                  </a>
+                </div>
+              </motion.div>
+            </motion.div>
+          </AnimatePresence>
+
+          <div className="flex justify-center mt-6 gap-2 absolute bottom-4 left-1/2 transform -translate-x-1/2">
             {testimonials.map((_, index) => (
               <button
                 key={index}
