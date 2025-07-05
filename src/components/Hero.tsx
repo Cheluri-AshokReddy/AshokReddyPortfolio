@@ -60,7 +60,7 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Image Section */}
-          <div className="relative" style={{ marginLeft: "120px" }}>
+          <div className="relative" style={{ marginLeft: "60px" }}>
             <div className="w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full bg-gradient-to-br from-purple-400 to-blue-500 p-1">
               <div className="w-full h-full rounded-full bg-gray-900 flex items-center justify-center">
                 <img
