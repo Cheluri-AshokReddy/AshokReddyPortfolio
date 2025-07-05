@@ -25,7 +25,7 @@ const Hero: React.FC = () => {
         setTimeout(() => setIsDeleting(true), 2000);
       } else if (isDeleting && currentText === "") {
         setIsDeleting(false);
-        setCurrentIndex(prev => (prev + 1) % texts.length);
+        setCurrentIndex((prev) => (prev + 1) % texts.length);
       }
     }, isDeleting ? 50 : 100);
 
@@ -53,21 +53,21 @@ const Hero: React.FC = () => {
             </div>
 
             <p className="text-base sm:text-lg text-gray-400 max-w-xl mx-auto lg:mx-0 mb-8">
-              A passionate <span className="font-semibold text-white">Java Developer</span> who loves building clean, scalable, and production‑ready backend systems with <span className="font-semibold">Spring Boot</span>, <span className="font-semibold">REST APIs</span>, and modern databases.
+              A passionate <span className="font-semibold text-white">Java Developer</span> who loves building clean, scalable, and production‑ready backend systems with{" "}
+              <span className="font-semibold">Spring Boot</span>,{" "}
+              <span className="font-semibold">REST APIs</span>, and modern databases.
             </p>
           </div>
 
           {/* Image Section */}
-          <div className="flex justify-center lg:justify-end">
-            <div className="relative">
-              <div className="w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full bg-gradient-to-br from-purple-400 to-blue-500 p-1">
-                <div className="w-full h-full rounded-full bg-gray-900 flex items-center justify-center">
-                  <img
-                    src={profilePic}
-                    alt="Ashok Reddy Cheluri"
-                    className="w-full h-full rounded-full object-cover shadow-lg"
-                  />
-                </div>
+          <div className="relative" style={{ marginLeft: "120px" }}>
+            <div className="w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full bg-gradient-to-br from-purple-400 to-blue-500 p-1">
+              <div className="w-full h-full rounded-full bg-gray-900 flex items-center justify-center">
+                <img
+                  src={profilePic}
+                  alt="Ashok Reddy Cheluri"
+                  className="w-full h-full rounded-full object-cover shadow-lg"
+                />
               </div>
             </div>
           </div>
