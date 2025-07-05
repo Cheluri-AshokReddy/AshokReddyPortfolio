@@ -69,7 +69,6 @@ const Hero: React.FC = () => {
                   />
                 </div>
               </div>
-              <div className="absolute -top-3 -right-3 w-6 h-6 sm:w-8 sm:h-8 bg-green-400 rounded-full animate-pulse border-2 border-gray-900" />
             </div>
           </div>
         </div>
