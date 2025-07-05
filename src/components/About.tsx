@@ -88,8 +88,8 @@ const About = () => {
     },
     {
       icon: <FaUsers className="text-purple-400 mx-auto mb-2" />,
-      number: 1,
-      suffix: "+",
+      number: 2,
+      //suffix: "+",
       label: "Year Leadership in Tech Communities",
       tooltip: "Over a year organizing tech events & workshops",
     },
