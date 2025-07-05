@@ -7,7 +7,17 @@ const Projects = () => {
       title: 'E-Commerce Microservices Project',
       description:
         'This project is a complete e-commerce backend system built using Spring Boot Microservices architecture. It includes core microservices like Product, Cart, Order, Notification, along with Service Registry, API Gateway, and Config Server for efficient management and scaling.',
-      technologies: ['Java', 'Spring Boot', 'Microservices', 'REST APIs', 'JWT'],
+      technologies: [
+        'Java',
+        'Spring Boot',
+        'Microservices',
+        'REST APIs',
+        'JWT',
+        'Eureka',
+        'Kafka',
+        'Spring Security',
+        'PostgreSQL',
+      ],
       github: 'https://github.com/Cheluri-AshokReddy/ecommerce-microservices.git',
     },
     {
@@ -51,7 +61,10 @@ const Projects = () => {
                 {project.technologies.map((tech, techIndex) => (
                   <span
                     key={techIndex}
-                    className="px-2 py-1 bg-purple-900/30 text-purple-300 rounded text-xs border border-purple-700"
+                    className="px-2 py-1 bg-purple-900/30 text-purple-300 rounded text-xs border border-purple-700
+                      hover:border-purple-400 hover:text-purple-400 transition-colors duration-200
+                      transform hover:scale-110 hover:rotate-1 cursor-pointer"
+                    title={tech}
                   >
                     {tech}
                   </span>

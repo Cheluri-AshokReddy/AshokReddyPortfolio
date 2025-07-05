@@ -9,7 +9,11 @@ const Testimonials = () => {
 
   const testimonials = [
     {
-      message: "Ashok Reddy Cheluri has been more than just a friend—he’s someone who always carried this calm, cheerful vibe that made things feel lighter, no matter how big the task was. He’s usually in his own space, but when something needs to be done, he shows up like magic—solves the problem, gives us his support, and quietly slips away, leaving us smiling. One memory that really sticks with me is when most of us went home for the holidays, but Ashok chose to stay back at college just to make sure everything was perfect for our event. On top of all that, his 500-day coding streak on GeeksforGeeks is honestly incredible. It shows how quietly consistent and passionate he is about what he loves.",
+      message: `Ashok Reddy Cheluri has been more than just a friend—he’s someone who always carried this calm, cheerful vibe that made things feel lighter, no matter how big the task was. He’s usually in his own space, but when something needs to be done, he shows up like magic—solves the problem, gives us his support, and quietly slips away, leaving us smiling.
+
+One memory that really sticks with me is when most of us went home for the holidays, but Ashok chose to stay back at college just to make sure everything was perfect for our event.
+
+On top of all that, his 500-day coding streak on GeeksforGeeks is honestly incredible. It shows how quietly consistent and passionate he is about what he loves.`,
       name: "Navuluri Balaji",
       role: "Associate Software Developer, AVK Tech",
       avatar: "/assets/balaji.jpg",
@@ -17,24 +21,31 @@ const Testimonials = () => {
       linkedin: "http://www.linkedin.com/in/navuluri-balaji"
     },
     {
-      message: "Working with Ashok on backend projects has been fantastic...",
-      name: "Michael Chen",
-      role: "Tech Lead",
-      avatar: "/assets/testimonials/michael.jpg",
-      github: "#",
-      linkedin: "#"
+      message: `Ashok is someone who leads by example through his quiet dedication and strong work ethic. He may not always be the most visible presence, but when it’s time to get things done, he’s always there—focused, reliable, and fully committed.
+
+Whether it was staying back during holidays to ensure everything ran smoothly or stepping in exactly when needed, Ashok has consistently shown how dependable and hardworking he truly is.
+
+It’s been a pleasure working with someone who brings both sincerity and calm focus to everything he does.`,
+      name: "PARIMAL ADINI ",
+      role: "Backend Developer NOMISO",
+      avatar: "/assets/Parimal.jpg",
+      github: "http://parimaladini.github.io/",
+      linkedin: "https://www.linkedin.com/in/parimal-adini/"
     },
     {
-      message: "Ashok's dedication to coding excellence and continuous learning is impressive...",
-      name: "Priya Sharma",
-      role: "Engineering Manager",
-      avatar: "/assets/testimonials/priya.jpg",
-      github: "#",
-      linkedin: "#"
+      message: `Ashok has been more than just a best friend—his mindset, dedication, and consistency set him apart. His coding skills and problem-solving abilities are truly impressive, and he's always been supportive and dependable.
+
+I was amazed by his commitment on platforms like GeeksforGeeks. Whether it was team coordination or learning something new, Ashok always stepped up with enthusiasm.
+
+His passion for lifelong learning and disciplined approach will surely lead him to great success.`,
+      name: "Nithish Paidimarri",
+      role: "DevOps Intern, BNP Paribas",
+      avatar: "/assets/Nitish.jpg",
+      github: "https://github.com/Nithish-456",
+      linkedin: "https://linkedin.com/in/nithish456"
     }
   ];
 
-  // Auto-scroll logic
   useEffect(() => {
     if (!isHovered) {
       intervalRef.current = setInterval(() => {
@@ -54,7 +65,7 @@ const Testimonials = () => {
         </div>
 
         <div
-          className="max-w-4xl mx-auto relative h-[480px] overflow-hidden"
+          className="max-w-4xl mx-auto relative h-[500px] overflow-hidden"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
@@ -68,7 +79,7 @@ const Testimonials = () => {
               className="absolute w-full h-full"
             >
               <motion.div
-                className="bg-gray-900/50 p-8 border border-gray-700 rounded-lg text-center cursor-pointer"
+                className="bg-gray-900/50 p-8 border border-gray-700 rounded-lg text-center cursor-pointer overflow-y-auto max-h-[480px] scrollbar-thin scrollbar-thumb-purple-500 scrollbar-track-gray-700"
                 whileHover={{ scale: 1.05 }}
               >
                 <div className="mb-6">
@@ -81,7 +92,7 @@ const Testimonials = () => {
                   </div>
                 </div>
 
-                <blockquote className="text-lg text-gray-300 mb-6 italic leading-relaxed">
+                <blockquote className="text-sm sm:text-base text-gray-300 mb-6 italic leading-relaxed whitespace-pre-line">
                   "{testimonials[currentTestimonial].message}"
                 </blockquote>
 
@@ -96,12 +107,16 @@ const Testimonials = () => {
                   <a
                     href={testimonials[currentTestimonial].github}
                     className="p-2 bg-gray-800 rounded-full border border-gray-600 hover:border-purple-500"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <Github className="w-4 h-4" />
                   </a>
                   <a
                     href={testimonials[currentTestimonial].linkedin}
                     className="p-2 bg-gray-800 rounded-full border border-gray-600 hover:border-purple-500"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
