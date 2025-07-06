@@ -8,11 +8,11 @@ const skillCategories = [
   },
   {
     title: 'Databases & Tools',
-    skills: ['SQL', 'PostgreSQL', 'MongoDB', 'H2', 'Git', 'GitHub', 'IntelliJ IDEA', 'Postman'],
+    skills: ['SQL', 'PostgreSQL', 'MongoDB', 'H2', 'Git', 'GitHub', 'Postman'],
   },
   {
     title: 'Concepts',
-    skills: ['Microservices', 'DTO', 'REST APIs', 'JWT Authentication', 'Message Queues'],
+    skills: ['Microservices', 'REST APIs','Rabbit Mq', 'JWT Authentication' ],
   },
 ];
 

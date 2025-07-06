@@ -1,16 +1,18 @@
 import React from 'react';
 import { ExternalLink } from 'lucide-react';
 import { motion } from 'framer-motion';
+import {
+  SiGeeksforgeeks,
+  SiLeetcode,
+  SiCodingninjas,
+  SiHackerrank,
+  SiCodechef,
+} from 'react-icons/si';
 
 const platforms = [
   {
     name: 'GeeksforGeeks',
-    icon: (
-      <svg className="w-8 h-8" viewBox="0 0 24 24" fill="#2F8D46" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="12" cy="12" r="10" />
-        <text x="50%" y="60%" textAnchor="middle" fill="white" fontSize="10" fontFamily="Arial">GfG</text>
-      </svg>
-    ),
+    icon: <SiGeeksforgeeks className="w-8 h-8 text-[#0F9D58]" />,
     stats: [
       'Coding Score: 3405',
       'Problems Solved: 1455',
@@ -22,12 +24,7 @@ const platforms = [
   },
   {
     name: 'LeetCode',
-    icon: (
-      <svg className="w-8 h-8" viewBox="0 0 24 24" fill="#FFA116" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="12" cy="12" r="10" />
-        <text x="50%" y="60%" textAnchor="middle" fill="black" fontSize="10" fontFamily="Arial">LC</text>
-      </svg>
-    ),
+    icon: <SiLeetcode className="w-8 h-8 text-[#FFA116]" />,
     stats: [
       'Problems Solved: 400+',
       'Longest Streak: 200 days',
@@ -37,16 +34,14 @@ const platforms = [
   },
   {
     name: 'Coding Ninjas',
-    icon: (
-      <svg className="w-8 h-8" viewBox="0 0 24 24" fill="#FF5722" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="12" cy="12" r="10" />
-        <text x="50%" y="60%" textAnchor="middle" fill="white" fontSize="10" fontFamily="Arial">CN</text>
-      </svg>
-    ),
+    /* NOTE: Simple‑Icons does include Coding Ninjas.
+       If you ever find the import missing, keep your existing SVG fallback,
+       but the component below should work in most setups. */
+    icon: <SiCodingninjas className="w-8 h-8 text-[#FF5722]" />,
     stats: [
-      '3x Specialist Badges (DSA)',
-      '13x Achiever Badges',
-      'Coding: 205 | MCQs: 193',
+      '3× Specialist Badges (DSA)',
+      '13× Achiever Badges',
+      'Coding: 205 | MCQs: 193',
       'Longest Streak: 18 days',
     ],
     color: 'from-orange-500 to-orange-700',
@@ -54,12 +49,7 @@ const platforms = [
   },
   {
     name: 'HackerRank',
-    icon: (
-      <svg className="w-8 h-8" viewBox="0 0 24 24" fill="#00EA64" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="12" cy="12" r="10" />
-        <text x="50%" y="60%" textAnchor="middle" fill="black" fontSize="10" fontFamily="Arial">HR</text>
-      </svg>
-    ),
+    icon: <SiHackerrank className="w-8 h-8 text-[#00EA64]" />,
     stats: [
       '100+ Problems Solved',
       'Badges: Java, SQL, Problem Solving',
@@ -69,12 +59,7 @@ const platforms = [
   },
   {
     name: 'CodeChef',
-    icon: (
-      <svg className="w-8 h-8" viewBox="0 0 24 24" fill="#5B4638" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="12" cy="12" r="10" />
-        <text x="50%" y="60%" textAnchor="middle" fill="white" fontSize="10" fontFamily="Arial">CC</text>
-      </svg>
-    ),
+    icon: <SiCodechef className="w-8 h-8 text-[#5B4638]" />,
     stats: [
       '50+ Problems Solved',
       'Certificates in Python, Java, and Advanced Java',
