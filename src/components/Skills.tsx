@@ -12,7 +12,7 @@ const skillCategories = [
   },
   {
     title: 'Concepts',
-    skills: ['Microservices', 'REST APIs','Rabbit Mq', 'JWT Authentication' ],
+    skills: ['Microservices', 'JWT Authentication' ,'REST APIs', ],
   },
 ];
 
