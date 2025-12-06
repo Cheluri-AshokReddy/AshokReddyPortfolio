@@ -256,7 +256,7 @@ const Contact = () => {
             {/* Resume Download */}
             <div>
               <a
-                href="/AshokJavaDeveloper.pdf"
+                href="/Ashok_Kumar_Reddy_Cheluri_Java_Developer.pdf"
                 download
                 className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r 
                 from-purple-600 to-blue-600 rounded-lg font-medium hover:from-purple-700 
